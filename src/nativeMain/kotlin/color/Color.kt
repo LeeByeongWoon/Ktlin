@@ -1,6 +1,6 @@
 package color
 
-enum class Color(val red: Int, val green: Int, val blue: Int) {
+enum class Color(private val red: Int, private val green: Int, private val blue: Int) {
     RED(255, 0, 0),
     ORANGE(255, 165, 0),
     YELLOW(255, 255, 0),

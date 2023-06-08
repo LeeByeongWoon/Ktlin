@@ -1,16 +1,29 @@
+import number.FizzBuzz
+import number.Num
+import number.Sum
+import number.evalWithLogging
 import person.Person
-import shape.Rectangle
-import shape.createRandomRectangle
 
 fun main() {
     println("Hello, Kotlin/Native!")
     val person = Person("green")
     println(person.name)
-    val rectangle = Rectangle(100,200)
-    for (i in 1..100){
-        println(createRandomRectangle().isSquare)
+    println(evalWithLogging(Sum(Sum(Num(1), Num(5)), Num(4))))
+    for (i in 0..100 step 2) {
+        println(FizzBuzz(i))
+    }
+
+    val binaryRepsMutable: MutableMap<Char, String> = mutableMapOf()
+    for (character in 'A'..'F') {
+        val bin = character.code.toString(2)
+        println("$character : ${character.code}")
+        binaryRepsMutable[character] = bin
+    }
+    for ((letter, binary) in binaryRepsMutable) {
+        println("$letter : $binary")
     }
 }
 
 fun max(a: Int, b: Int): Int = if (a > b) a else b
-val message: String = ""
+fun isLetter(c: Char) = c in 'a'..'z' || c in 'A'..'Z'
+fun isNotDigit(c: Char) = c !in ('0'..'9')
